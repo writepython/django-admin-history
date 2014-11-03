@@ -11,14 +11,13 @@ class LogEntryAdmin(admin.ModelAdmin):
     date_hierarchy = 'action_time'
     actions = None
     readonly_fields = LogEntry._meta.get_all_field_names()
-    change_form_template = 'admin/log_entry_change_form.html'    
 
     list_filter = [
-        # 'user',
         'action_flag'
     ]
 
     search_fields = [
+        'user__username',
         'object_repr',
         'change_message'
     ]
