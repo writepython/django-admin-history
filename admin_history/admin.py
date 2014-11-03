@@ -79,10 +79,6 @@ class LogEntryAdmin(admin.ModelAdmin):
         return False
     
     def object_link(self, obj):
-        print "cm"
-        print obj.object_repr
-        print 'fu'
-        print force_unicode(obj.object_repr)
         if obj.action_flag == DELETION:
             link = escape(obj.object_repr)
         elif not obj.object_id:
